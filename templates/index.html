@@ -1,0 +1,112 @@
+{% extends "basic.html" %}
+
+{% block title %}Самостоятельная работа №3{% endblock %}
+
+{% block content %}
+
+<div class="wrap">
+    <div class="content-table">
+        <a href="#p2.1">2.1, Установка заголовка на поле документа</a><br>
+        <a href="#p2.2">2.2, Запись отдельных строк текста</a><br>
+        <a href="#p2.3">2.3, Запись текста по абзацам</a><br>
+        <a href="#p2.4">2.4, Выделение текста</a><br>
+        <a href="#p2.5">2.5, Применение логических стилей для организации фрагментов текста</a><br>
+        <a href="#p2.6">2.6, Выделение с помощью переформатированного текста (текст с фиксированной шириной знаков и пробелов)</a><br>
+        <a href="#p2.7">2.7, Использование в тексте символов</a><br>
+        <a href="#p3">3, Организация гипертекстовых ссылок</a><br>
+    </div>
+
+    <a name="p2.1"></a>
+    <p class="task-name">2.1, Установка заголовка на поле документа</p>
+    <h1>МГТУ им. Баумана</h1>
+    <h2>ИБМ</h2>
+    <h2>Инноватика</h2>
+    <h2>{{ student.name }}</h2>
+
+    <br>
+    <hr>
+    <br>
+
+    <a name="p2.2"></a>
+    <p class="task-name">2.2, Запись отдельных строк текста</p>
+    <p class="poem">{{ poem }}</p>
+    <br>
+    <a name="p2.3"></a>
+    <p class="task-name">2.3, Запись текста по абзацам</p>
+    {% for p in ['left', 'right', 'center', 'justify'] %}
+    <p class="align-{{ p }}">This paragraph is aligned {{ p }}.
+        <br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+        culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    {% endfor %}
+
+    <br>
+    <hr>
+    <br>
+    <a name="p2.4"></a>
+    <p class="task-name">2.4, Выделение текста</p>
+    <p>Выделение текста</p>
+    {% for i in [('bold', 'Жирный'), ('italic', 'Курсивный'), ('underlined', 'Подчёркнутый'), ('monospace', 'Машинопись')]%}
+    <p class="text-{{ i[0] }} font-size-32">{{ i[1] }}</p>
+    {% endfor %}
+
+    <p>
+        (X + Y) * Z <sup><small>X - Y</small></sup><br>
+        C<sub>6</sub>H<sub>12</sub>O<sub>5</sub>
+    </p>
+    <br>
+    <hr>
+
+    <a name="p2.5"></a>
+    <p class="task-name">2.5, Применение логических стилей для организации фрагментов текста</p>
+    <p class="quote">Uno momento, per aspera ad astra!</p>
+
+    <br>
+
+    <a name="p2.6"></a>
+    <p class="task-name">2.6, Выделение с помощью переформатированного текста (текст с фиксированной шириной знаков и пробелов)</p>
+    <table class="blue">
+        <thead>
+        <tr>
+            {% for t in table.heads %}
+            <th>{{ t }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in table.rows %}
+        <tr>
+            {% for t in row %}
+            <td>{{ t }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <br>
+    <a name="p2.7"></a>
+    <p class="task-name">2.7, Использование в тексте символов</p>
+    <p class="align-center">&lt;br&gt;</p>
+    <br>
+    <hr>
+    <br>
+
+    <a name="p3"></a>
+    <p class="task-name">3, Организация гипертекстовых ссылок</p>
+
+    <p>Студент Сусанин Станислав Ильич учится в университете
+        <a href="https://www.bmstu.ru/">МГТУ им. Баумана</a>, на факультете
+        <a href="https://www.bmstu.ru/faculty/ebm">ИБМ</a>, на кафедре
+        <a href="https://www.bmstu.ru/chair/innovacionnoe-predprinimatelstvo">Инновационное предпринимательство</a>.
+    </p>
+</div>
+<div class="footer">
+    &copy; Сусанин Станислав Ильич
+</div>
+{% endblock %}
