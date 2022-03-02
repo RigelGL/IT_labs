@@ -1,0 +1,253 @@
+{% extends "basic.html" %}
+
+{% block title %}Самостоятельная работа №3{% endblock %}
+
+{% block content %}
+
+<div class="wrap">
+    <ul class="content-table">
+        <li><a href="#p2.1">2.1, Список дисциплин</a></li>
+        <li><a href="#p2.2">2.2, Расписание на день</a></li>
+        <li><a href="#p2.3">2.3, Организация нумерованного (упорядоченного) списка</a></li>
+        <li><a href="#p2.4">2.4, Язык гипертекстовой разметки</a></li>
+        <li><a href="#p3.1">3.1, Размещение простой таблицы</a></li>
+        <li><a href="#p3.4">3.4, Формирование сложной таблицы</a></li>
+        <li><a href="#p3.5">3.5, Разработка таблицы, с указанным числом учебных часов по видам занятий</a></li>
+        <li><a href="#p4">4, Сформировать галерею изображений, используя таблицу</a></li>
+    </ul>
+
+    <br>
+
+    <a name="p2.1"></a>
+    <p class="task-name">2.1, Список дисциплин</p>
+    <ul class="disciplines">
+        {% for d in disciplines %}
+        <li>
+            {{ d.name }}
+            <ul>
+                {% if d.lectures > 0 %}
+                <li>Лекции: {{ d.lectures }}</li>
+                {% endif %}
+                {% if d.seminars > 0 %}
+                <li>Семинары: {{ d.seminars }}</li>
+                {% endif %}
+                {% if d.labs > 0 %}
+                <li>Лабы: {{ d.labs }}</li>
+                {% endif %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <br>
+
+    <a name="p2.2"></a>
+    <p class="task-name">2.2, Расписание на день</p>
+    <ul class="daily">
+        {% for d in daily %}
+        <li>
+            {{ d.discipline.name }}
+            <span>Пара: {{ d.number }}, {{ ['лекция', 'семинар', 'лаба'][d.type] }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <br>
+
+    <a name="p2.3"></a>
+    <p class="task-name">2.3, Организация нумерованного (упорядоченного) списка</p>
+    <ul class="workers">
+        {% for s in ['Вася', 'Петя', 'Маша', 'Саша', 'Олег'] %}
+        <li>{{ s }}</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+
+    <ul class="endless-list">
+        <li>Глава 1
+            <ul>
+                <li>Проблема 1</li>
+                <li>Проблема 2</li>
+            </ul>
+        </li>
+        <li>Глава 2
+            <ul>
+                <li>Задача 1
+                    <ul>
+                        <li>Цель 1</li>
+                        <li>Цель 2
+                            <ul>
+                                <li>Средство 1</li>
+                                <li>Средство 2</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Задача 2</li>
+                <li>Задача 3</li>
+            </ul>
+        </li>
+    </ul>
+
+    <br>
+
+    <p>Список дел</p>
+    <ol class="task-list" start="3">
+        <li>To do</li>
+        <li>To do</li>
+        <li>To do, to do, to do, to do</li>
+        <li>To doooo, dododododo</li>
+    </ol>
+
+    <br>
+
+    <a name="p2.4"></a>
+    <p class="task-name">2.4, Язык гипертекстовой разметки</p>
+    <dl class="dictionary-1">
+        <dt>Карандаш</dt>
+        <dd>Им можно писать и рисовать.</dd>
+        <dt>Ручка</dt>
+        <dd>Ей можно писать.</dd>
+    </dl>
+
+    <br>
+
+    <a name="p3.1"></a>
+    <p class="task-name">3.1. Размещение простой таблицы</p>
+
+    {% for s in ['', 'border-separate', 'hard-sized-50', 'hard-sized-1000'] %}
+    {{ s }}
+    <table class="table-1 {{ s }}">
+        <thead>
+        <tr>
+            <th>Виды занятий</th>
+            <th>Лекции</th>
+            <th>Семинары</th>
+            <th>Лабы</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for d in disciplines %}
+        <tr>
+            <td>{{ d.name }}</td>
+            <td>{{ d.lectures }}</td>
+            <td>{{ d.seminars }}</td>
+            <td>{{ d.labs }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="bold">
+            <td>Всего</td>
+            <td>{{ disciplines_total[0] }}</td>
+            <td>{{ disciplines_total[1] }}</td>
+            <td>{{ disciplines_total[2] }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    {% endfor %}
+
+    <br>
+
+    <table class="left-table" align="left">
+        <tr>
+            <td>ЭКЗАМЕНЫ И ЗАЧЕТЫ</td>
+        </tr>
+    </table>
+    <p class="p-right-table">Из таблицы следует, что общее число экзаменов и зачетов
+        за период обучения студента в университете = 88
+    </p>
+
+    <br>
+    <br>
+    <br>
+
+    <a name="p3.4"></a>
+    <p class="task-name">3.4. Формирование сложной таблицы</p>
+
+    <table class="table-2">
+        <tr>
+            <td rowspan="2" colspan="2"></td>
+            <td colspan="4">Год обучения</td>
+        </tr>
+        <tr>
+            {% for i in range(4) %}
+            <td>{{ i + 1 }} курс</td>
+            {% endfor %}
+        </tr>
+        {% for i in range(2) %}
+        <tr>
+            <td rowspan="2">
+                {{ i + 1}} семестр
+            </td>
+            <td>Зачёт</td>
+            {% for i in range(4) %}
+            <td>{{ randint(4, 5) }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Экзамен</td>
+            {% for i in range(4) %}
+            <td>{{ randint(4, 5) }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+    <a name="p3.5"></a>
+    <p class="task-name">3.5. Разработка таблицы, с указанным числом учебных часов по видам занятий</p>
+    <table class="table-3">
+        <tr>
+            <td colspan="{{ len(disciplines[:3]) + 1 }}">Учебная программа текущего семестра</td>
+        </tr>
+        <tr>
+            <td></td>
+            {% for d in disciplines[:3] %}
+            <td>{{ d.name }}</td>
+            {% endfor %}
+        </tr>
+
+        <tr>
+            <td>Лекции</td>
+            {% for d in disciplines[:3] %}
+            <td>{{ d.lectures }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Семинары</td>
+            {% for d in disciplines[:3] %}
+            <td>{{ d.seminars }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Лабы</td>
+            {% for d in disciplines[:3] %}
+            <td>{{ d.labs }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+
+    <br>
+
+    <a name="p4"></a>
+    <p class="task-name">4. Сформировать галерею изображений, используя таблицу</p>
+
+    <table class="photos">
+        {% for row in pictures %}
+        <tr>
+            {% for url in row %}
+            <td>
+                <img src="{{ url }}">
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+<div class="footer">
+    &copy; Сусанин Станислав Ильич
+</div>
+{% endblock %}

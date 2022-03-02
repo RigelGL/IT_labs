@@ -1,0 +1,219 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrap {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 50px;
+}
+
+.footer {
+    width: 100%;
+    height: 70px;
+    margin-top: 50px;
+    background: #DDD;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: center;
+    line-height: 70px;
+}
+
+p {
+    margin: 10px;
+    font-size: 20px;
+    color: #444;
+}
+
+.font-size-32 {
+    font-size: 32px;
+}
+
+.content-table {
+    padding: 20px 0;
+}
+
+.content-table a {
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.disciplines {
+    list-style-type: disc;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.disciplines > li {
+    margin: 10px 0;
+    color: #444;
+}
+
+.disciplines > li > ul {
+    list-style-type: square;    
+    margin: 5px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.daily {
+    list-style-image: url(marker.png);
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.daily > li {
+    margin: 10px 0;
+    color: #444;
+}
+
+
+.daily span {
+    display: block;
+    font-size: 16px;
+    color: #666;
+}
+
+.workers {
+    list-style: decimal;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.endless-list {
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #444;
+    list-style: upper-roman;
+}
+
+.endless-list  ul {
+    list-style: upper-latin;
+}
+
+.endless-list ul ul {
+    list-style: decimal;
+}
+
+.endless-list ul ul ul {
+    list-style: lower-roman;
+}
+
+.task-list {
+    font-size: 20px;
+    list-style: upper-latin;
+}
+
+.dictionary-1 {
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #222;
+}
+
+.dictionary-1 dd {
+    font-size: 16px;
+    color: #444;
+    margin: 5px 0 10px 20px;
+}
+
+.table-1 {
+    border-collapse: collapse;
+}
+
+.table-1 thead {
+    background: #c8dff5;
+}
+
+.table-1 th, .table-1 td {
+    border: 1px solid #444;
+    padding: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.table-1 tbody tr:nth-child(2n) {
+    background: #e2e2f5;
+}
+
+.table-1 tbody tr:nth-child(2n+1) {
+    background: #c7c7ea;
+}
+
+.border-separate {
+    border-collapse: separate !important;
+    border-spacing: 10px;
+}
+
+.hard-sized-50 {
+    width: 50px;
+    height: 50px;
+}
+
+.hard-sized-1000 {
+    width: 1000px;
+    height: 1000px;
+}
+
+.left-table {
+    display: inline;
+    vertical-align: middle;
+    border-top: 2px solid #666;
+    border-bottom: 2px solid #666;
+    border-collapse: collapse;
+    margin-right: 10px;
+}
+
+.left-table td {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.p-right-table {
+    text-indent: 20px;
+    display: inline;
+    vertical-align: middle;
+}
+
+.table-2 {
+    border-collapse: collapse;
+}
+
+.table-2 td {
+    border: 1px solid #444;
+    padding: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+
+.table-3 {
+    border-collapse: collapse;
+}
+
+.table-3 td {
+    border: 1px solid #444;
+    padding: 4px;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.photos {
+    width: 90%;
+    border-collapse: collapse
+}
+
+.photos td {
+    width: 33.3%;
+    border: 1px solid #888;
+    text-align: center;
+}
+
+.photos img {
+    max-width: 100%;
+}
+
+.bold {
+    font-weight: bold;
+}
